@@ -1,0 +1,18 @@
+{
+  "name": "meantodo",
+  "description": "MEAN stack TODO app",
+  "main": "server.js",
+  "authors": [
+    "Waseem Ahmed"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alphawaseem/MEAN-Todo-App",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
