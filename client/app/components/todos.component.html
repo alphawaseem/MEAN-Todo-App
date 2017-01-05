@@ -1,0 +1,22 @@
+<div class="card text-xs-center">
+    <div class="card-header text-white bg-inverse">
+        <h2>My Todos</h2>
+    </div>
+    <div class="card-block">
+        <h4 class="card-title">Add Todo</h4>
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Whats left todo?" autofocus>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Todo</button>
+        </form>
+    </div>
+    <div class="card-block">
+        <div *ngIf="!todos" class="alert alert-info alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+            <strong>No Todos.</strong> Try adding some!
+        </div>
+    </div>
+</div>
