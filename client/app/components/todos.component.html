@@ -25,7 +25,7 @@
                 <div class="list-group-item">
                     <div class="row">
                         <div class="col-xs-1">
-                            <label for="done"><input id="done" type="checkbox"></label>
+                            <label for="isCompleted"><input id="isCompleted" type="checkbox" [checked]="todo.isCompleted" (click)="updateStatus(todo)"  ></label>
                         </div>
                         <div class="col-xs">
                             {{todo.text}}

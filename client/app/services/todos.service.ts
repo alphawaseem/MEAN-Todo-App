@@ -19,4 +19,11 @@ export class TodosService{
         return this.http.post('/api/v1/todo',JSON.stringify(todo),{headers:headers})
         .map(res => res.json());
     }
+
+    updateTodo(todo:any){
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.put('/api/v1/todo/'+todo._id,JSON.stringify(todo),{headers:headers})
+        .map(res => res.json());
+    }
 }
