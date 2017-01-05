@@ -4,11 +4,11 @@
     </div>
     <div class="card-block">
         <h4 class="card-title">Add Todo</h4>
-        <form class="form-inline">
+        <form class="form-inline" onsubmit="return false;">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Whats left todo?" autofocus>
+                <input type="text" class="form-control" #newTodo placeholder="Whats left todo?" autofocus>
             </div>
-            <button type="submit" class="btn btn-primary">Add Todo</button>
+            <button type="button" (click)="addTodo(newTodo)" class="btn btn-primary">Add Todo</button>
         </form>
     </div>
     <div class="card-block">
@@ -20,18 +20,21 @@
         </div>
 
         <div class="list-group">
-            <div class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-1">
-                        <label for="done"><input id="done" type="checkbox"></label>
-                    </div>
-                    <div class="col-xs">
-                        Todo text here Todo text here Todo text here
-                    </div>
-                    <div class="col-xs col-sm-4 ">
-                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary btn-danger">Delete</button>
-                            <button type="button" class="btn btn-secondary btn-info">Edit</button>
+            <div *ngFor="let todo of todos">
+
+                <div class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <label for="done"><input id="done" type="checkbox"></label>
+                        </div>
+                        <div class="col-xs">
+                            {{todo.text}}
+                        </div>
+                        <div class="col-xs col-sm-4 ">
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary btn-danger">Delete</button>
+                                <button type="button" class="btn btn-secondary btn-info">Edit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
