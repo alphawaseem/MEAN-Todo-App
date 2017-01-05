@@ -22,18 +22,23 @@
         <div class="list-group">
             <div *ngFor="let todo of todos">
 
-                <div class="list-group-item">
+                <div class="list-group-item" [class.disabled]="todo.isCompleted">
                     <div class="row">
                         <div class="col-xs-1">
                             <label for="isCompleted"><input id="isCompleted" type="checkbox" [checked]="todo.isCompleted" (click)="updateStatus(todo)"  ></label>
                         </div>
                         <div class="col-xs">
-                            {{todo.text}}
+                            <span [hidden]="todo.editing"> {{todo.text}} </span>
+                            <div class="row">
+                                <input class="col-xs" [hidden]="!todo.editing" #editTodoText value="{{todo.text}}">
+                                <button type="button" [hidden]="!todo.editing" class="btn btn-primary btn-sm col-xs-10 col-sm-3 col-md-3" (click)="updateTodo(todo,editTodoText);todo.editing=false">Update</button>
+                            </div>
+
                         </div>
                         <div class="col-xs col-sm-4 ">
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary btn-danger">Delete</button>
-                                <button type="button" class="btn btn-secondary btn-info">Edit</button>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Delete and Edit Group">
+                                <button type="button" class="btn btn-secondary btn-sm btn-danger">Delete</button>
+                                <button type="button" class="btn btn-secondary btn-info" (click)="todo.editing=true">Edit</button>
                             </div>
                         </div>
                     </div>

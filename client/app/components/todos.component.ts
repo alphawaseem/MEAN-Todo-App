@@ -44,5 +44,16 @@ export class TodosComponent implements OnInit{
             todo.isCompleted = !todo.isCompleted;
         });
     }
+    updateTodo(todo:any,newText:HTMLInputElement){
+        let _todo = {
+            _id : todo._id,
+            text : newText.value,
+            isCompleted : todo.isCompleted
+        }
+        this.todoService.updateTodo(_todo)
+        .subscribe(updatedTodo=>{
+            todo.text = newText.value;
+        });
+    }
     
 }
