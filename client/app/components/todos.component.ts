@@ -7,7 +7,7 @@ import { TodosService } from '../services/todos.service';
     templateUrl : 'todos.component.html'
 })
 export class TodosComponent implements OnInit{
-    todos : any;
+    todos : any[];
     ngOnInit(){
         this.getTodos();
     }
@@ -54,6 +54,18 @@ export class TodosComponent implements OnInit{
         .subscribe(updatedTodo=>{
             todo.text = newText.value;
         });
+    }
+    deleteTodo(todo:any){
+       this.todoService.deleteTodo(todo._id)
+       .subscribe(res => {
+           let index:number = null;
+            for(let i=0,len=this.todos.length;i<len;i++){
+                if(todo._id===this.todos[i]._id){
+                        index = i;
+                }
+            }
+        this.todos.splice(index,1)
+    });
     }
     
 }
